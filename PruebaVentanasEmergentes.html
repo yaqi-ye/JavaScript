@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            var propVent="width=300, height=200, top=300, left=300, scrollbars=no, toolbars=no"
+            var miVentana= open("http://www.pildorasinformaticas.es","Pildoras",propVent);
+            $("#botonCerrar").click(function(e){
+                e.preventDefault();
+                miVentana.close();
+            })
+        })
+
+    </script>
+
+</head>
+<body>
+    
+    <a href="http://www.pildorasinformaticas.es">Ir a Píldoras Informáticas</a>
+    <br><br><br>
+    <a href="" id="botonCerrar">Cerrar</a>
+
+</body>
+</html>

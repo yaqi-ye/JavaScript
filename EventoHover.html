@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #imagenes{
+            width: 1475px;
+            margin: auto;
+        }
+        img{
+            padding: 20px 30px;
+            width: 300px;
+            height: 200px;
+        }
+        #mensaje_img{
+            position: absolute;
+            left: 623px;
+            top: 392px;
+            width: 581px;
+            height: 215px;
+            background-color: #FF9;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 25px;
+            border: dotted 2px #00F;
+        }
+        #mensaje_img1{
+            position: absolute;
+            left: 623px;
+            top: 392px;
+            width: 581px;
+            height: 215px;
+            background-color: #FF9;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 25px;
+            border: dotted 2px #00F;
+        }
+        #mensaje_img2{
+            position: absolute;
+            left: 623px;
+            top: 392px;
+            width: 581px;
+            height: 215px;
+            background-color: #FF9;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 25px;
+            border: dotted 2px #00F;
+        }
+        #mensaje_img3{
+            position: absolute;
+            left: 623px;
+            top: 392px;
+            width: 581px;
+            height: 215px;
+            background-color: #FF9;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 25px;
+            border: dotted 2px #00F;
+        }
+    </style>
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            $("#mensaje_img").hide();
+            // $("#imagen").hover(mensaje_on,mensaje_off);
+            $("#imagen").hover(function(){
+                $("#mensaje_img").show();
+            },
+                function(){
+                    $("#mensaje_img").hide();
+                });
+            $("#mensaje_img1").hide();
+            $("#imagen1").hover(function(){
+                $("#mensaje_img1").show();
+            },
+                function(){
+                    $("#mensaje_img1").hide();
+                });
+            $("#mensaje_img2").hide();
+            $("#imagen2").hover(function(){
+                $("#mensaje_img2").show();
+            },
+                function(){
+                    $("#mensaje_img2").hide();
+                });
+            $("#mensaje_img3").hide();
+            $("#imagen3").hover(function(){
+                $("#mensaje_img3").show();
+            },
+                function(){
+                    $("#mensaje_img3").hide();
+                });
+        });
+        /*
+        function mensaje_on(){
+            $("#mensaje_img").show();
+        }
+        function mensaje_off(){
+            $("#mensaje_img").hide();
+        }
+        */
+    </script>
+
+</head>
+<body>
+    
+    <div id="mensaje_img">Preciosa encina en mitad de la meseta castellana...</div>
+    <div id="mensaje_img1">Preciosa fotografía en blanco y negro.</div>
+    <div id="mensaje_img2">Preciosa foto de girasoles.</div>
+    <div id="mensaje_img3">Precioso paisaje con mar de fondo.</div>
+
+    <div id="imagenes">
+        <img src="imgs/arbol.jpg" id="imagen">
+        <img src="imgs/imagen1.jpg" id="imagen1">
+        <img src="imgs/imagen2.jpg" id="imagen2">
+        <img src="imgs/imagen3.jpg" id="imagen3">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="button" id="boton">
+    <input type="button" id="boton1">
+    <input type="text" id="miCuadro">
+
+    <script>
+
+        var miboton=document.getElementById("boton");
+        var miboton1=document.getElementById("boton1");
+        var cuadroTexto=document.getElementById("miCuadro");
+
+        miboton.style.width="300px";
+        miboton.style.height="300px";
+        //miboton.style.backgroundColor="blue";
+
+        miboton1.style.width="300px";
+        miboton1.style.height="300px";
+
+        miboton1.focus();
+
+        //cuadroTexto.style.backgroundColor="red";
+        cuadroTexto.style.background="red";
+        cuadroTexto.value="Escriba aquí...";
+        cuadroTexto.style.height="200px";
+
+    </script>
+
+</body>
+</html>

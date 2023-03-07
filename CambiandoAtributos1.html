@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #contenedor{
+            position: absolute;
+            left: 67px;
+            top: 177px;
+            width: 408px;
+            height: 298px;
+            z-index: 1;
+        }
+
+        #contenedor1{
+            position: absolute;
+            left: 510px;
+            top: 176px;
+            width: 443px;
+            height: 297px;
+            z-index: 2;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        li{
+            margin: 10px 0;
+            font-size: 24px;
+            width: 95px;
+        }
+
+        .destacar{
+            background-color: #F00;
+            color: #FFF;
+        }
+
+    </style>
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            var elementos=document.querySelectorAll("li");
+            for(var i=0;i<elementos.length;i++){
+                elementos[i].addEventListener("mouseover", pon_imagen, false);
+                elementos[i].addEventListener("mouseout", quita_imagen, false);
+            }
+        });
+
+        function pon_imagen(e){
+            if(e.target==elemento1){
+                $("#elemento1").addClass("destacar");
+                $("img").attr("src","imgs/arbol.jpg");
+                $("img").css("width","300px","height","200px");
+            }else if(e.target==elemento2){
+                $("#elemento2").addClass("destacar");
+                $("img").attr("src","imgs/imagen1.jpg");
+                $("img").css("width","300px","height","200px");
+            }else if(e.target==elemento3){
+                $("#elemento3").addClass("destacar");
+                $("img").attr("src","imgs/imagen2.jpg");
+                $("img").css("width","300px","height","200px");
+            }else if(e.target==elemento4){
+                $("#elemento4").addClass("destacar");
+                $("img").attr("src","imgs/imagen3.jpg");
+                $("img").css("width","300px","height","200px");
+            }
+        }
+
+        function quita_imagen(e){
+            if(e.target==elemento1){
+                $("#elemento1").removeClass("destacar");
+                $("img").removeAttr("src");
+            }else if(e.target==elemento2){
+                $("#elemento2").removeClass("destacar");
+                $("img").removeAttr("src");
+            }else if(e.target==elemento3){
+                $("#elemento3").removeClass("destacar");
+                $("img").removeAttr("src");
+            }else if(e.target==elemento4){
+                $("#elemento4").removeClass("destacar");
+                $("img").removeAttr("src");
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    
+    <div id="contenedor">
+        <ul>
+            <li id="elemento1">Imagen 1</li>
+            <li id="elemento2">Imagen 2</li>
+            <li id="elemento3">Imagen 3</li>
+            <li id="elemento4">Imagen 4</li>
+        </ul>
+    </div>
+
+    <div id="contenedor1">
+        <img src="">
+    </div>
+
+</body>
+</html>
