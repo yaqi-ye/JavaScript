@@ -22,8 +22,8 @@
         h1{
             text-align: center;
         }
-        #tarjeta, #fecha_tarjeta, #email{
-            background-color: #F93;
+        #tarjeta, #fecha_tarjeta, #email, #n_tarjeta, #f_tarjeta, #e_mail{
+            visibility: hidden;
         }
     </style>
 
@@ -32,20 +32,32 @@
     <script>
 
         $(document).ready(function(){
-            $("#paypal").click(function(){
-                $("#email").attr("disabled",false).focus().css("background-color","#FFF");
-                $("#tarjeta").attr("disabled",true).css("background-color","#F93");
-                $("#fecha_tarjeta").attr("disabled",true).css("background-color","#F93");
-            });
             $("#visa").click(function(){
-                $("#tarjeta").attr("disabled",false).focus().css("background-color","#FFF");
-                $("#fecha_tarjeta").attr("disabled",false).css("background-color","#FFF");
-                $("#email").attr("disabled",true).css("background-color","#F93");
+                $("#tarjeta").css("visibility","visible");
+                $("#n_tarjeta").css("visibility","visible");
+                $("#fecha_tarjeta").css("visibility","visible");
+                $("#f_tarjeta").css("visibility","visible");
+                $("#email").css("visibility","hidden");
+                $("#e_mail").css("visibility","hidden");
+                $("#tarjeta").focus();
             });
             $("#master").click(function(){
-                $("#tarjeta").attr("disabled",false).focus().css("background-color","#FFF");
-                $("#fecha_tarjeta").attr("disabled",false).css("background-color","#FFF");
-                $("#email").attr("disabled",true).css("background-color","#F93");
+                $("#tarjeta").css("visibility","visible");
+                $("#n_tarjeta").css("visibility","visible");
+                $("#fecha_tarjeta").css("visibility","visible");
+                $("#f_tarjeta").css("visibility","visible");
+                $("#email").css("visibility","hidden");
+                $("#e_mail").css("visibility","hidden");
+                $("#tarjeta").focus();
+            });
+            $("#paypal").click(function(){
+                $("#tarjeta").css("visibility","hidden");
+                $("#n_tarjeta").css("visibility","hidden");
+                $("#fecha_tarjeta").css("visibility","hidden");
+                $("#f_tarjeta").css("visibility","hidden");
+                $("#email").css("visibility","visible");
+                $("#e_mail").css("visibility","visible");
+                $("#email").focus();
             });
         });
 
@@ -106,7 +118,7 @@
                                 <label for="tarjeta" id="n_tarjeta">Nº Tarjeta:</label>
                             </td>
                             <td>
-                                <input type="text" name="tarjeta" id="tarjeta" disabled>
+                                <input type="text" name="tarjeta" id="tarjeta">
                             </td>
                         </tr>
                         <tr>
@@ -114,7 +126,7 @@
                                 <label for="fecha_tarjeta" id="f_tarjeta">Fecha expiración:</label>
                             </td>
                             <td>
-                                <input type="text" name="fecha_tarjeta" id="fecha_tarjeta" disabled>
+                                <input type="text" name="fecha_tarjeta" id="fecha_tarjeta">
                             </td>
                         </tr>
                         <tr>
@@ -122,7 +134,7 @@
                                 <label for="email" id="e_mail">E-mail:</label>
                             </td>
                             <td>
-                                <input type="text" name="email" id="email" disabled>
+                                <input type="text" name="email" id="email">
                             </td>
                         </tr>
                     </table></td>

@@ -22,9 +22,6 @@
         h1{
             text-align: center;
         }
-        #tarjeta, #fecha_tarjeta, #email{
-            background-color: #F93;
-        }
     </style>
 
     <script src="Jquery/jquery-1.6.3.min.js"></script>
@@ -32,20 +29,47 @@
     <script>
 
         $(document).ready(function(){
-            $("#paypal").click(function(){
-                $("#email").attr("disabled",false).focus().css("background-color","#FFF");
-                $("#tarjeta").attr("disabled",true).css("background-color","#F93");
-                $("#fecha_tarjeta").attr("disabled",true).css("background-color","#F93");
+        
+            $("#nombre").focus(function(){
+                var campo_nombre=$(this);
+                if(campo_nombre.val()==campo_nombre.attr("value")){
+                    campo_nombre.val("");
+                }
             });
-            $("#visa").click(function(){
-                $("#tarjeta").attr("disabled",false).focus().css("background-color","#FFF");
-                $("#fecha_tarjeta").attr("disabled",false).css("background-color","#FFF");
-                $("#email").attr("disabled",true).css("background-color","#F93");
+
+            $("#form_datos").submit(function(){
+                if($("#nombre").val()==""||$("#nombre").val()=="Nombre obligatorio"){
+                    alert("Por favor, rellene el nombre.");
+                    $("#nombre").focus();
+                    return false;
+                }
             });
-            $("#master").click(function(){
-                $("#tarjeta").attr("disabled",false).focus().css("background-color","#FFF");
-                $("#fecha_tarjeta").attr("disabled",false).css("background-color","#FFF");
-                $("#email").attr("disabled",true).css("background-color","#F93");
+
+            $("#edad").blur(function(){
+                var edad_usuario=$(this).val();
+                if(isNaN(edad_usuario)){
+                    alert("Por favor, introduce un valor numérico.");
+                    $(this).focus();
+                    $(this).val("");
+                }
+            });
+
+            $(":radio").click(function(){
+                alert($(this).val());
+            });
+
+            var miArray=new Array();
+            var i=0;
+
+            $(":checkbox").click(function(){
+                miArray[i]=$(this).val();
+                // alert("Posición "+i+" "+miArray[i]);
+                $("#las_aficiones").append(miArray[i]).append("<br>");
+                i++;
+            });
+
+            $("#pais").change(function(){
+                alert("País de residencia: "+$(this).val());
             });
         });
 
@@ -56,7 +80,7 @@
     <h1>Envío de datos</h1>
     <div id="contenedor">
         <form id="form_datos">
-            <table width="25%" border="0" align="center" id="principal">
+            <table width="20%" border="0" align="center" id="principal">
                 <tr>
                     <td>Nombre:</td>
                     <td>
@@ -65,67 +89,29 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Dirección:</td>
+                    <td>Apellido:</td>
                     <td>
-                        <input type="text" name="direccion" id="direccion">
+                        <input type="text" name="apellido" id="apellido">
                     </td>
                 </tr>
                 <tr>
-                    <td>Ciudad:</td>
+                    <td>Edad:</td>
                     <td>
-                        <input type="text" name="ciudad" id="ciudad">
+                        <input type="text" name="edad" id="edad">
                     </td>
                 </tr>
                 <tr>
-                    <td>Código Postal:</td>
-                    <td>
-                        <input type="text" name="c_postal" id="c_postal">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Método de pago:</td>
+                    <td>Género:</td>
                     <td><p>
-                        <input type="radio" name="radio" id="paypal" value="Paypal">
-                        <label for="paypal">PayPal</label>
-                    </p>
-                    <p>
-                        <input type="radio" name="radio" id="master" value="Master">
-                        <label for="master">MasterCard</label>
-                    </p>
-                    <p>
-                        <input type="radio" name="radio" id="visa" value="Visa">
-                        <label for="visa">Visa</label>
+                        <label>
+                            <input type="radio" name="genero" value="Masculino" id="masculino">
+                            Masculino</label>
+                        <br>
+                        <label>
+                            <input type="radio" name="genero" value="Femenino" id="femenino">
+                            Femenino</label>
                         <br>
                     </p></td>
-                </tr>
-                <tr>
-                    <td>Datos de pago</td>
-                    <td><table width="200">
-                        <tr>
-                            <td>
-                                <label for="tarjeta" id="n_tarjeta">Nº Tarjeta:</label>
-                            </td>
-                            <td>
-                                <input type="text" name="tarjeta" id="tarjeta" disabled>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="left">
-                                <label for="fecha_tarjeta" id="f_tarjeta">Fecha expiración:</label>
-                            </td>
-                            <td>
-                                <input type="text" name="fecha_tarjeta" id="fecha_tarjeta" disabled>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="email" id="e_mail">E-mail:</label>
-                            </td>
-                            <td>
-                                <input type="text" name="email" id="email" disabled>
-                            </td>
-                        </tr>
-                    </table></td>
                 </tr>
                 <tr>
                     <td>País:</td>
@@ -142,12 +128,48 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Aficiones:</td>
+                    <td><table width="200">
+                        <tr>
+                            <td><label>
+                                <input type="checkbox" name="deporte" value="Deporte" id="deporte">
+                                Deporte
+                            </label></td>
+                            <td><label>
+                                <input type="checkbox" name="informática" value="Informática" id="informatica">
+                                Informática
+                            </label></td>
+                        </tr>
+                        <tr>
+                            <td><label>
+                                <input type="checkbox" name="lectura" value="Lectura" id="lectura">
+                                Lectura
+                            </label></td>
+                            <td><label>
+                                <input type="checkbox" name="cine" value="Cine" id="cine">
+                                Cine
+                            </label></td>
+                        </tr>
+                        <tr>
+                            <td><label>
+                                <input type="checkbox" name="bares" value="Bares" id="bares">
+                                Bares
+                            </label></td>
+                            <td><label>
+                                <input type="checkbox" name="naturaleza" value="Naturaleza" id="naturaleza">
+                                Naturaleza
+                            </label></td>
+                        </tr>
+                    </table></td>
+                </tr>
+                <tr>
                     <td colspan="2" align="center">
-                        <input type="submit" value="Enviar" id="enviar">
+                        <input type="submit" value="Comprobar" id="comprobar">
                     </td>
                 </tr>
             </table>
         </form>
     </div>
+    <div id="las_aficiones"></div>
 </body>
 </html>

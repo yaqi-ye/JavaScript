@@ -7,229 +7,40 @@
     <title>Document</title>
 
     <style>
-        body{
-            background-color: #FFC;
+
+        .micontenedor{
+            background-color: #0F0;
         }
-        #principal{
-            padding: 10px 10px 10px 50px;
-            background-color: #F93;
-            box-shadow: 10px 10px 5px 0px #999999;
-            border-radius: 10px;
-        }
-        td{
-            padding-bottom: 25px;
-        }
-        h1{
-            text-align: center;
-        }
+
     </style>
 
     <script src="Jquery/jquery-1.6.3.min.js"></script>
 
     <script>
 
-        $(document).ready(function(){
-            $("#comprobar").click(comprobar_datos);
+        function validar(){
 
-            $("#nombre").focus(function(){
-                var campo_nombre=$(this);
-                if(campo_nombre.val()==campo_nombre.attr("value")){
-                    campo_nombre.val("");
+            var n_usuario=document.getElementById("usuario").value;
+
+                if(n_usuario==""){
+                    $("#usuario").after("Rellena este campo, por favor.");
                 }
-            });
-
-            $("#form_datos").submit(function(){
-                if($("#nombre").val()==""||$("#nombre").val()=="Nombre obligatorio"){
-                    alert("Por favor, rellene el nombre.");
-                    $("#nombre").focus();
-                    return false;
-                }
-            });
-
-            $("#apellido").focus(function(){
-                var campo_apellido=$(this);
-                if(campo_apellido.val()==campo_apellido.attr("value")){
-                    campo_apellido.val("");
-                }
-            });
-
-            $("#form_datos").submit(function(){
-                if($("#apellido").val()==""||$("#apellido").val()=="Apellido obligatorio"){
-                    alert("Por favor, rellene el apellido.");
-                    $("#apellido").focus();
-                    return false;
-                }
-            });
-
-            $("#edad").focus(function(){
-                var campo_edad=$(this);
-                if(campo_edad.val()==campo_edad.attr("value")){
-                    campo_edad.val("");
-                }
-            });
-
-            $("#edad").blur(function(){
-                var edad_usuario=$(this).val();
-                if(isNaN(edad_usuario)){
-                    alert("Por favor, introduce un valor numérico.");
-                    $(this).focus();
-                    $(this).val("");
-                }
-            });
-        });
-
-
-        function comprobar_datos(){
-
-            $(":text").each(function(){
-                alert($(this).val());
-            });
-
-            $("#pais").each(function(){
-                alert($(this).val());
-            });
-
-            if($("#masculino").attr("checked")){
-                alert("Eres hombre.");
-            }else{
-                alert("Eres mujer.");
-            }
-
-            if($("#deporte").attr("checked")){
-                alert("Te gusta el deporte.");
-            }else{
-                alert("No te gusta el deporte.");
-            }
-
-            if($("#informatica").attr("checked")){
-                alert("Te gusta la informática.");
-            }else{
-                alert("No te gusta la informática.");
-            }
-
-            if($("#lectura").attr("checked")){
-                alert("Te gusta la lectura.");
-            }else{
-                alert("No te gusta la lectura.");
-            }
-
-            if($("#cine").attr("checked")){
-                alert("Te gusta el cine.");
-            }else{
-                alert("No te gusta el cine.");
-            }
-
-            if($("#bares").attr("checked")){
-                alert("Te gustan los bares.");
-            }else{
-                alert("No te gustan los bares.");
-            }
-
-            if($("#naturaleza").attr("checked")){
-                alert("Te gusta la naturaleza.");
-            }else{
-                alert("No te gusta la naturaleza.");
-            }
         }
-
+    
     </script>
 
 </head>
 <body>
     
-    <h1>Envío de datos</h1>
-    <div id="contenedor">
-        <form id="form_datos">
-            <table width="20%" border="0" align="center" id="principal">
-                <tr>
-                    <td>Nombre:</td>
-                    <td>
-                        <label for="nombre"></label>
-                        <input type="text" name="nombre" id="nombre" value="Nombre obligatorio">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Apellido:</td>
-                    <td>
-                        <input type="text" name="apellido" id="apellido" value="Apellido obligatorio">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Edad:</td>
-                    <td>
-                        <input type="text" name="edad" id="edad" value="Edad obligatoria">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Género:</td>
-                    <td><p>
-                        <label>
-                            <input type="radio" name="genero" value="Masculino" id="masculino">
-                            Masculino</label>
-                        <br>
-                        <label>
-                            <input type="radio" name="genero" value="Femenino" id="femenino">
-                            Femenino</label>
-                        <br>
-                    </p></td>
-                </tr>
-                <tr>
-                    <td>País:</td>
-                    <td>
-                        <label for="pais"></label>
-                        <select name="pais" id="pais">
-                            <option>España</option>
-                            <option>México</option>
-                            <option>Colombia</option>
-                            <option>Perú</option>
-                            <option>Chile</option>
-                            <option>Argentina</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Aficiones:</td>
-                    <td><table width="200">
-                        <tr>
-                            <td><label>
-                                <input type="checkbox" name="deporte" value="Deporte" id="deporte">
-                                Deporte
-                            </label></td>
-                            <td><label>
-                                <input type="checkbox" name="informática" value="Informática" id="informatica">
-                                Informática
-                            </label></td>
-                        </tr>
-                        <tr>
-                            <td><label>
-                                <input type="checkbox" name="lectura" value="Lectura" id="lectura">
-                                Lectura
-                            </label></td>
-                            <td><label>
-                                <input type="checkbox" name="cine" value="Cine" id="cine">
-                                Cine
-                            </label></td>
-                        </tr>
-                        <tr>
-                            <td><label>
-                                <input type="checkbox" name="bares" value="Bares" id="bares">
-                                Bares
-                            </label></td>
-                            <td><label>
-                                <input type="checkbox" name="naturaleza" value="Naturaleza" id="naturaleza">
-                                Naturaleza
-                            </label></td>
-                        </tr>
-                    </table></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" value="Comprobar" id="comprobar">
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+    <form action="" method="get">
+        
+        <input name="" type="text" id="usuario"><br/>
+        <input name="" type="text" id="nombre"><br/>
+        <input name="" type="text" id="apellido"><br/>
+
+        <input type="button" value="Dale" onclick="validar()">
+    
+    </form>
 
 </body>
 </html>
