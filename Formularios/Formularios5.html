@@ -80,14 +80,60 @@
         }
     </style>
 
-    <script src="Jquery/jquery-1.6.3.min.js"></script>
-    <script src="Jquery/jquery-validation-1.19.5.js"></script>
+    <script src="../Jquery/jquery-1.6.3.min.js"></script>
+    <script src="../Jquery/jquery-validation-1.19.5.js"></script>
 
     <script>
 
         $(document).ready(function(){
             $(".form_registro").validate();
         });
+
+        function confirmarContrasenas() {
+            // Obtener las contraseñas ingresadas por el usuario
+            var pass1 = document.getElementById("password").value;
+            var pass2 = document.getElementById("confirma").value;
+
+            // Verificar si las contraseñas son iguales
+            if (pass1 === pass2) {
+                // Mostrar mensaje de confirmación
+                document.getElementById("mensaje").innerHTML = "Las contraseñas son iguales";
+            } else {
+                // Mostrar mensaje de error
+                document.getElementById("mensaje").innerHTML = "Las contraseñas no coinciden";
+                document.getElementById("confirma").value="";
+            }
+        }
+
+        function validarCheckBox() {
+            var opciones = document.getElementsByName("hobby");
+            var seleccionado = false;
+            for (var i = 0; i < opciones.length; i++) {
+                if (opciones[i].checked) {
+                seleccionado = true;
+                break;
+                }
+            }
+            if (!seleccionado) {
+                document.getElementById("mensaje1").innerHTML="Seleccione al menos una opción";
+                event.preventDefault();
+            }
+        }
+
+        function validarRadio() {
+            var opciones = document.getElementsByName("spam");
+            var seleccionado = false;
+            for (var i = 0; i < opciones.length; i++) {
+                if (opciones[i].checked) {
+                seleccionado = true;
+                break;
+                }
+            }
+            if (!seleccionado) {
+                document.getElementById("mensaje2").innerHTML="Seleccione una opción";
+                event.preventDefault();
+            }
+        }
 
     </script>
 
@@ -116,16 +162,18 @@
                     </div>
                     <div>
                         <label for="confirma" class="label">CONFIRMA CONTRASEÑA:</label>
-                        <input name="confirma" type="password" id="confirma" required>
+                        <input name="confirma" type="password" id="confirma" onblur="confirmarContrasenas()" required>
+                        <p id="mensaje"></p>
                     </div>
                     <div>
                         <span class="label">AFICIONES:</span>
-                        <input name="hobby" type="checkbox" id="comer" value="Comer" required>
+                        <input name="hobby" type="checkbox" id="comer" value="Comer">
                         Comer
                         <input name="hobby" type="checkbox" id="beber" value="Beber">
                         <label for="Beber">Beber</label>
                         <input name="hobby" type="checkbox" id="dormir" value="Dormir">
                         <label for="Dormir">Dormir</label>
+                        <p id="mensaje1"></p>
                     </div>
                     <div>
                         <label for="fecha" class="label">FECHA NACIMIENTO:</label>
@@ -153,8 +201,9 @@
                         <label for="definitely">Por supuesto</label>
                         <input type="radio" name="spam" id="eleccion" value="¿Tengo elección?">
                         <label for="eleccion">¿Tengo elección?</label>
+                        <p id="mensaje2"></p>
                         <br>
-                        <input type="submit" name="enviar" id="enviar" value="Enviar">
+                        <input type="submit" name="enviar" id="enviar" value="Enviar" onclick="validarCheckBox(),validarRadio()">
                     </div>
                 </form>
             </div>

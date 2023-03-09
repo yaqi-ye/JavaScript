@@ -1,0 +1,15 @@
+html{
+    background-color: rgb(5, 5, 78);
+}
+.logo{
+    text-align: center;
+    color: orange;
+    font-size: 50px;
+}
+.contenido{
+    margin-left: 50px;
+    margin-right: 50%;
+}
+h1{
+    color: white;
+}

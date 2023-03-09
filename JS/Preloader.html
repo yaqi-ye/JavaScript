@@ -12,14 +12,14 @@
         }
     </style>
 
-    <script src="Jquery/jquery-1.6.3.min.js"></script>
+    <script src="../Jquery/jquery-1.6.3.min.js"></script>
 
     <script>
 
         $(document).ready(function(){
             
             var foto_nueva=new Image();
-            foto_nueva.src="imgs/imagen1.jpg";
+            foto_nueva.src="../Imgs/imagen1.jpg";
 
             $("#foto").hover(function(){
                 $(this).animate({
@@ -31,7 +31,7 @@
                     $(this).animate({
                         opacity: 0.5
                     },50);
-                    $(this).attr("src","imgs/imagen1.jpg");
+                    $(this).attr("src","../Imgs/imagen1.jpg");
                 });
         });
 
@@ -40,7 +40,7 @@
 </head>
 <body>
     
-    <img src="imgs/imagen1.jpg" width="300" height="200" id="foto">
+    <img src="../Imgs/imagen1.jpg" width="300" height="200" id="foto">
 
 </body>
 </html>

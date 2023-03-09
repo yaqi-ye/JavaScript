@@ -22,16 +22,16 @@
         }
     </style>
 
-    <script src="Jquery/jquery-1.6.3.min.js"></script>
+    <script src="../Jquery/jquery-1.6.3.min.js"></script>
 
     <script>
 
         $(document).ready(function(){
 
-            var foto_hover=["imgs/imagen2.jpg",
-                            "imgs/imagen3.jpg",
-                            "imgs/imagen4.jpg",
-                            "imgs/imagen5.jpg"];
+            var foto_hover=["../Imgs/imagen2.jpg",
+                            "../Imgs/imagen3.jpg",
+                            "../Imgs/imagen4.jpg",
+                            "../Imgs/imagen5.jpg"];
             var imagenes=[];
 
             for(var i=0;i<foto_hover.length;i++){
@@ -57,13 +57,13 @@
 
         function restaurar(e){
             if(e.target==img1){
-                $("#img1").attr("src","imgs/imagen1.jpg");
+                $("#img1").attr("src","../Imgs/imagen1.jpg");
             }else if(e.target==img2){
-                $("#img2").attr("src","imgs/imagen1.jpg");
+                $("#img2").attr("src","../Imgs/imagen1.jpg");
             }else if(e.target==img3){
-                $("#img3").attr("src","imgs/imagen1.jpg");
+                $("#img3").attr("src","../Imgs/imagen1.jpg");
             }else if(e.target==img4){
-                $("#img4").attr("src","imgs/imagen1.jpg");
+                $("#img4").attr("src","../Imgs/imagen1.jpg");
             }
         }
         });
@@ -77,10 +77,10 @@
 
     <table width="100%" border="0">
         <tr>
-            <td><img src="imgs/imagen1.jpg" id="img1"></td>
-            <td><img src="imgs/imagen1.jpg" id="img2"></td>
-            <td><img src="imgs/imagen1.jpg" id="img3"></td>
-            <td><img src="imgs/imagen1.jpg" id="img4"></td>
+            <td><img src="../Imgs/imagen1.jpg" id="img1"></td>
+            <td><img src="../Imgs/imagen1.jpg" id="img2"></td>
+            <td><img src="../Imgs/imagen1.jpg" id="img3"></td>
+            <td><img src="../Imgs/imagen1.jpg" id="img4"></td>
         </tr>
     </table>
 
