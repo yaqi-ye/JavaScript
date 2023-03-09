@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: #FFC;
+        }
+        #principal{
+            padding: 30px 10px 10px 70px;
+            background-color: #F93;
+            box-shadow: 10px 10px 5px 0px #999999;
+            border-radius: 10px;
+        }
+        td{
+            padding-bottom: 25px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+
+    <script src="Jquery/jquery-validation-1.19.5.js"></script>
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $("#form_datos").validate();
+        });
+    </script>
+
+</head>
+<body>
+    <h1>Envío de datos</h1>
+    <div id="contenedor">
+        <form id="form_datos">
+            <table width="25%" border="0" align="center" id="principal">
+                <tr>
+                    <td>Nombre:</td>
+                    <td>
+                        <label for="nombre"></label>
+                        <input type="text" name="nombre" id="nombre" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Apellidos:</td>
+                    <td>
+                        <label for="apellidos"></label>
+                        <input type="text" name="apellidos" id="apellidos" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fecha Nacimiento:</td>
+                    <td>
+                        <label for="f_nacimiento"></label>
+                        <input type="date" name="f_nacimiento" id="f_nacimiento" required> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Edad:</td>
+                    <td>
+                        <label for="edad"></label>
+                        <input type="number" name="edad" id="edad" size="4" min="1" max="105" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Código Postal:</td>
+                    <td>
+                        <label for="c_postal"></label>
+                        <input type="text" name="c_postal" id="c_postal">
+                    </td>
+                </tr>
+                <tr>
+                    <td>E-Mail:</td>
+                    <td>
+                        <label for="e_mail"></label>
+                        <input type="email" name="email" id="e_mail" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Página Web:</td>
+                    <td>
+                        <label for="e_mail"></label>
+                        <input type="url" name="email" id="e_mail">
+                    </td>
+                </tr>
+                <tr>
+                    <td>País:</td>
+                    <td>
+                        <label for="pais"></label>
+                        <select name="pais" id="pais">
+                            <option>España</option>
+                            <option>México</option>
+                            <option>Colombia</option>
+                            <option>Perú</option>
+                            <option>Chile</option>
+                            <option>Argentina</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Enviar" id="enviar">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
